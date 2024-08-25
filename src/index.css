@@ -1,0 +1,515 @@
+@font-face {
+    font-family: 'Circular';
+    src: local('Circular'), url(./fonts/Circular.otf) format('truetype');
+}
+
+@font-face {
+    font-family: 'CircularLight';
+    src: local('CircularLight'), url(./fonts/CircularLight.otf) format('truetype');
+}
+
+html {
+    background-color: #121212;
+    font-family: Circular;
+}
+
+body {
+    margin: 0 auto;
+    color: white;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 4vh;
+    background-color: #1f1e1e;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 6vh;
+    border-bottom: 1px solid #888888;
+    padding: 1.5vh;
+    gap: 3vh;
+}
+
+.header-title {
+    text-align: center;
+    width: 40%;
+    font-size: 5vh;
+    margin: 0;
+}
+
+.header > img {
+    cursor: pointer;
+}
+
+.game-guess-title {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    row-gap: 1.2vh;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2vh;
+}
+
+.game-guess-title > input {
+    width: 48vw;
+    height: 5vh;
+    background-color: #121212;
+    border: 1px solid #888888;
+    padding: 0 2vh 0 2vh;
+    color: #888888;
+    font-weight: bold;
+    outline: none;
+    background-repeat: no-repeat;
+    background-position: 2vh;
+    background-size: 15px;
+    text-indent: 3.5vh;
+}
+
+#search-input {
+    background-image: url(./assets/search_icon.png);
+    background-size: 3.5vh 3.5vh;
+    background-repeat: no-repeat;
+    background-position: 1vh;
+    background-position-y: center;
+    text-indent: 3vh;
+}
+
+#search-input:focus {
+    border: 1px solid #04AA6D;
+}
+
+.game-main {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    margin-bottom: 5vh;
+}
+
+.game-time {
+    display: flex;
+    position: relative;
+}
+
+.game-time > span:nth-child(1) {
+    width: 10%;
+}
+
+.game-time > span:nth-child(2) {
+    width: 10%;
+}
+
+.game-time > span:nth-child(3) {
+    width: 30%;
+}
+
+.game-time > span:nth-child(4) {
+    width: 40%;
+}
+
+.game-time > span:nth-child(5) {
+    width: 45%;
+}
+
+.game-time > span:nth-child(6) {
+    width: 55%;
+}
+
+.game-time-grid {
+    border: 1px solid #888888;
+    height: 2vh;
+}
+
+.game-time-grid-loaded {
+    width: 0;
+    height: 2vh;
+    background-color: #404040;
+    z-index: -1;
+}
+
+#time-all {
+    position: absolute;
+}
+
+.outer-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.game-time-play {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1vh;
+}
+
+.game-play-btn {
+    cursor: pointer;
+}
+
+.game-buttons  {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2vh;
+}
+
+.game-buttons > button {
+    border-radius: 5vh;
+    width: 10vw;
+    height: 8vh;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.skip-btn {
+    background-color: #121212;
+    color: white;
+    border: 1px solid #888888;
+    align-self: flex-start;
+}
+
+.submit-btn {
+    color: black;
+    border: none;
+    background-color: #24f053;
+    align-self: flex-end;
+}
+
+.submit-btn:disabled {
+    color: black;
+    border: none;
+    background-color: #014a2f;
+    align-self: flex-end;
+}
+
+.todays-answer-btn {
+    display: inline-block;
+    text-decoration: underline;
+    font-weight: bold;
+    margin-top: 3vh;
+    margin-bottom: 3vh;
+    cursor: pointer;
+}
+
+.grid-layout {
+    position: absolute;
+    display: grid;
+    background-color: #121212;
+    width: 100%;
+    text-indent: 2vh;
+    bottom: 5.3vh;
+    overflow-y: auto;
+    max-height: 40vh;
+}
+
+.grid-layout-song {
+    border: 2px solid #014a2f;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    line-height: 4vh;
+    cursor: pointer;
+    font-family: CircularLight;
+    max-height: 4vh;
+}
+
+mark {
+    background: #888888;
+    padding: 2px 0 2px 0;
+}
+
+/* Result Screen */
+
+.result-screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 5vh;
+}
+
+.result-album-cover {
+    width: 150px;
+    height: 150px;
+}
+
+.result-song {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.result-song-title {
+    text-align: center;
+    margin-top: 1.5vh;
+    margin-bottom: 0.5vh;
+}
+
+.result-text {
+    color: #888888;
+    margin: 0;
+    text-align: center;
+}
+
+.result-desc {
+    text-align: center;
+    margin-top: 6vh;
+    font-size: 4vh;
+}
+
+.result-comment {
+    margin-top: 4vh;
+    white-space: pre-wrap;
+}
+
+.result-boxes {
+    display: flex;
+    gap: 5px;
+}
+
+.result-box {
+    background-color: white;
+    width: 1vw;
+    height: 1.5px;
+}
+
+.result-box.correct {
+    background-color: #014a2f;
+}
+
+.result-box.wrong {
+    background-color: red;
+}
+
+.result-box.skipped {
+    background-color: #888888;
+}
+
+.listen-deezer-btn {
+    color: black;
+    border: none;
+    background-color: #24f053;
+    height: 6vh;
+}
+
+.result-share {
+    color: #36b536;
+    font-size: 2vh;
+    margin: 4vh; 
+    cursor: pointer;
+}
+
+.next-heardle-timer {
+    position: absolute;
+    bottom: 5vh;
+    font-family: CircularLight;
+}
+
+.modal {
+    position: fixed;
+    top: 25%;
+    left: 50%;
+    right: auto;
+    bottom: auto;
+    margin-right: -50%;
+    transform: translate(-50%, -25%);
+    width: 37vw;
+    background: #1F1E1E;
+    border: 1px solid #888888;
+    font-family: Helvetica;
+    font-size: 3vh;
+    visibility: visible;
+    z-index: 500;
+    text-align: center;
+    padding: 2vh;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 3vh 0 3vh;
+}
+
+.modal-title {
+    flex: 1;
+    text-align: center;
+    font-size: 3.5vh;
+}
+
+.new-line {
+    white-space: pre-line;
+}
+
+.modal-close {
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+}
+
+.modal-stats-table {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 3vw 0 3vw;
+}
+
+.modal-stats-stack {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.modal-stats-stack > p {
+    font-size: 2vh;
+    color: white;
+}
+
+.modal-stats-stack > p.day {
+    color: #888888;
+}
+
+.modal-stats-stack > img {
+    display: flex;
+    align-items: center;
+}
+
+.modal-stats-result {
+    height: 20vh;
+    width: 2vw;
+    margin-bottom: 2vh;
+}
+
+.modal-stats-result.correct {
+    background-color: green;
+}
+
+.modal-stats-result.wrong {
+    background-color: red;
+}
+
+.modal-stats-table-subtitle {
+    font-size: 2vh;
+    color: #888888;
+    margin: 0;
+    padding-bottom: 3vh;
+}
+
+.modal-stats-footer {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid #888888;
+    padding: 2vh 2vw 0 2vw;
+}
+
+.modal-stats-div {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.modal-stats-div * {
+    margin: 0;
+}
+
+.modal-stats-num {
+    font-size: 3.5vh;
+    font-weight: bold;
+}
+
+.modal-stats-title {
+    color: #888888;
+    font-size: 2vh;
+}
+
+.modal-how-to {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.modal-how-to-line {
+    display: flex;
+    align-items: center;
+    height: 10vh;
+    gap: 2vh;
+    text-align: left;
+}
+
+.modal-play-btn {
+    flex: 1;
+    text-align: center;
+}
+
+@media only screen and (max-width: 850px) {
+    .game-guess-title > input {
+        width: 80vw;
+    }
+    
+    .game-buttons > button {
+        width: 28vw;
+    }
+
+    .result-album-cover {
+        width: 100px;
+        height: 100px;
+    }
+
+    .result-song-title {
+        font-size: 4vh;
+    }
+
+    .result-text {
+        font-size: 2.5vh;
+    }
+
+    .modal {
+        font-size: 1.5vh;
+        width: 70vw;
+    }
+    
+    .modal-title {
+        font-size: 4vh;
+    }
+
+    .modal-stats-stack > p {
+        font-size: 3vh;
+    }
+
+    .modal-stats-table-subtitle {
+        font-size: 3vh;
+    }
+
+    .modal-about {
+        font-size: 2.5vh;
+    }
+
+    .modal-how-to {
+        font-size: 2.5vh;
+    }
+
+    .modal-how-to-icon {
+        height: 25px;
+        width: 25px;
+    }
+
+    .modal-stats-num {
+        font-size: 2.5vh;
+    }
+    
+    .modal-stats-title {
+        font-size: 1.5vh;
+    }
+
+    .modal-stats-result {
+        height: 10vh;
+        width: 2vw;
+        margin-bottom: 2vh;
+    }
+}
